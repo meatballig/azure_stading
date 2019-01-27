@@ -1,0 +1,18 @@
+az vm create \
+  --name myVM \
+  --resource-group cloud-shell-storage-westeurope \
+  --image UbuntuLTS \
+  --location eastus \
+  --size Standard_DS2_v2 \
+  --admin-username azureuser \az vm extension set \
+  --resource-group cloud-shell-storage-westeurope \
+  --vm-name myVM \
+  --name customScript \
+  --publisher Microsoft.Azure.Extensions \
+  --settings '{"fileUris":["https://raw.githubusercontent.com/MicrosoftDocs/mslearn-welcome-to-azure/master/configure-nginx.sh"]}' \
+  --protected-settings '{"commandToExecute": "./configure-nginx.sh"}'
+  --generate-ssh-keys
+
+
+
+  
