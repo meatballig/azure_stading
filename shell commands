@@ -4,15 +4,29 @@ az vm create \
   --image UbuntuLTS \
   --location eastus \
   --size Standard_DS2_v2 \
-  --admin-username azureuser \az vm extension set \
+  --admin-username azureuser \
+  --generate-ssh-keys
+
+
+az vm extension set \
   --resource-group cloud-shell-storage-westeurope \
   --vm-name myVM \
   --name customScript \
   --publisher Microsoft.Azure.Extensions \
   --settings '{"fileUris":["https://raw.githubusercontent.com/MicrosoftDocs/mslearn-welcome-to-azure/master/configure-nginx.sh"]}' \
   --protected-settings '{"commandToExecute": "./configure-nginx.sh"}'
-  --generate-ssh-keys
 
-
+SSH key files '/home/ccea7e53-b5b3-4508-8c37-h56eda636/.ssh/id_rsa' and '/home/ccea7e53-b5b3-4508-8c37-56eda636/.ssh/id_rsa.pub' have been generated under ~/.ssh to allow SSH access to the VM. If using machines without permanent storage, back up your keys to a safe location.
+{
+  "fqdns": "",
+  "id": "/subscriptions/bc94d36e-8d9a-4758-8121-98e38a0c1d73/resourceGroups/cloud-shell-storage-westeurope/providers/Microsoft.Compute/virtualMachines/myVM",
+  "location": "eastus",
+  "macAddress": "00-0D-3A-1D-FC-D2",
+  "powerState": "VM running",
+  "privateIpAddress": "10.0.0.4",
+  "publicIpAddress": "40.117.255.216",
+  "resourceGroup": "cloud-sell-storage-westeurope",
+  "zones": ""
+}
 
   
